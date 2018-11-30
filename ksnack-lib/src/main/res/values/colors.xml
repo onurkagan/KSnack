@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ksnack_default">#34495e</color>
+    <color name="ksnack_info">#3498db</color>
+    <color name="ksnack_success">#2ecc71</color>
+    <color name="ksnack_error">#e74c3c</color>
+    <color name="ksnack_warning">#f39c12</color>
+</resources>
