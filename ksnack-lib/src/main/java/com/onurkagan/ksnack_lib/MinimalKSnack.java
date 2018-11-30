@@ -3,6 +3,7 @@ package com.onurkagan.ksnack_lib;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +26,6 @@ public class MinimalKSnack {
         initializeMinimalBar(activity);
     }
 
-    public MinimalKSnack(Activity activity, MinimalKSnackBarEventListener minimalKSnackBarEventListener) {
-        this.minimalKSnackBarEventListener = minimalKSnackBarEventListener;
-        initializeMinimalBar(activity);
-    }
-
     private void initializeMinimalBar(Activity activity){
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         insertPoint = activity.findViewById(android.R.id.content);
@@ -49,6 +45,19 @@ public class MinimalKSnack {
         TextView txtMessage = snackView.findViewById(R.id.minimal_snack_bar_txt_message);
         txtMessage.setText(message);
 
+        return this;
+    }
+
+    // Duration
+    public MinimalKSnack setDuration(@NonNull int millisecond){
+
+        // Set duration.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dismiss();
+            }
+        }, millisecond);
         return this;
     }
 
@@ -80,16 +89,21 @@ public class MinimalKSnack {
         return this;
     }
 
-    // Duration
-    public MinimalKSnack setDuration(@NonNull int millisecond){
+    // Background color (Color res).
+    public MinimalKSnack setBackgroundColor(@NonNull @ColorRes int colorInt){
 
-        // Set duration.
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                dismiss();
-            }
-        }, millisecond);
+        // Initialize relative layout.
+        RelativeLayout rlvHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
+
+        // Set color.
+        rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(colorInt));
+
+        return this;
+    }
+
+    // Set Listener.
+    public MinimalKSnack setListener(MinimalKSnackBarEventListener listener){
+        this.minimalKSnackBarEventListener = listener;
         return this;
     }
 
