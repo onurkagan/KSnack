@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,14 @@ import android.widget.TextView;
  */
 
 public class MinimalKSnack {
-    public  View snackView;
-    private LayoutInflater linf;
-    private ViewGroup insertPoint;
-    private MinimalKSnackBarEventListener minimalKSnackBarEventListener;
+    public  View                            snackView;
+    private LayoutInflater                  linf;
+    private ViewGroup                       insertPoint;
+    private RelativeLayout                  rlvHost;
+    private MinimalKSnackBarEventListener   minimalKSnackBarEventListener;
 
     public MinimalKSnack(Activity activity) {
+        this.
         initializeMinimalBar(activity);
     }
 
@@ -34,6 +37,9 @@ public class MinimalKSnack {
         snackView.setVisibility(View.GONE);
         snackView.setZ(999);
         insertPoint.addView(snackView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        // Initialize component view.
+        rlvHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
     }
 
     // Message.
@@ -63,8 +69,6 @@ public class MinimalKSnack {
 
     // Style
     public MinimalKSnack setStyle(@NonNull int style){
-        // Initialize relative layout.
-        RelativeLayout rlvHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
 
         // Check style
         switch (style){
@@ -92,11 +96,17 @@ public class MinimalKSnack {
     // Background color (Color res).
     public MinimalKSnack setBackgroundColor(@NonNull @ColorRes int colorInt){
 
-        // Initialize relative layout.
-        RelativeLayout rlvHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
-
         // Set color.
         rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(colorInt));
+
+        return this;
+    }
+
+    // Background drawable (Drawable res).
+    public MinimalKSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt){
+
+        // Set drawable to view.
+        rlvHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
 
         return this;
     }
@@ -109,6 +119,7 @@ public class MinimalKSnack {
 
     public void show(){
         snackView.setVisibility(View.VISIBLE);
+
         if (minimalKSnackBarEventListener != null){
             minimalKSnackBarEventListener.showedMinimalSnackBar();
         }
