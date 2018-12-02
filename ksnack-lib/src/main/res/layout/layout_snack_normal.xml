@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:elevation="8dp"
+        android:background="@drawable/background_ksnack_normal">
+
+        <TextView
+            android:id="@+id/snack_bar_txt_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/snack_bar_btn_action"
+            android:gravity="left"
+            android:padding="16dp"
+            android:layout_centerVertical="true"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/snack_bar_btn_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:textColor="@color/ksnack_success" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
