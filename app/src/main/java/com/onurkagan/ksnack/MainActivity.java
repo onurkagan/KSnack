@@ -3,8 +3,8 @@ package com.onurkagan.ksnack;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import com.onurkagan.ksnack_lib.MinimalKSnack;
-import com.onurkagan.ksnack_lib.MinimalKSnackStyle;
+import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnack;
+import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnackStyle;
 
 public class MainActivity extends AppCompatActivity {
 

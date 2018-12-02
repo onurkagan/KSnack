@@ -1,4 +1,4 @@
-package com.onurkagan.ksnack_lib;
+package com.onurkagan.ksnack_lib.MinimalKSnack;
 
 /**
  * Created by mimcrea on 29.10.2018.

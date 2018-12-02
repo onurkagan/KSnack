@@ -1,4 +1,4 @@
-package com.onurkagan.ksnack_lib;
+package com.onurkagan.ksnack_lib.MinimalKSnack;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.onurkagan.ksnack_lib.R;
+
 
 /**
  * Created by mimcrea on 29.10.2018.
@@ -22,7 +24,7 @@ public class MinimalKSnack {
     private LayoutInflater                  linf;
     private ViewGroup                       insertPoint;
     private RelativeLayout                  rlvHost;
-    private MinimalKSnackBarEventListener   minimalKSnackBarEventListener;
+    private MinimalKSnackBarEventListener minimalKSnackBarEventListener;
 
     public MinimalKSnack(Activity activity) {
         this.
