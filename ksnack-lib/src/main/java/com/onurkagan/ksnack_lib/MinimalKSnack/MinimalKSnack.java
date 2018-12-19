@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.onurkagan.ksnack_lib.R;
@@ -23,12 +23,11 @@ public class MinimalKSnack {
     public  View                            snackView;
     private LayoutInflater                  linf;
     private ViewGroup                       insertPoint;
-    private RelativeLayout                  rlvHost;
-    private MinimalKSnackBarEventListener minimalKSnackBarEventListener;
+    private LinearLayout                    lnrHost;
+    private MinimalKSnackBarEventListener   minimalKSnackBarEventListener;
 
     public MinimalKSnack(Activity activity) {
-        this.
-        initializeMinimalBar(activity);
+        this.initializeMinimalBar(activity);
     }
 
     private void initializeMinimalBar(Activity activity){
@@ -41,7 +40,7 @@ public class MinimalKSnack {
         insertPoint.addView(snackView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         // Initialize component view.
-        rlvHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
+        lnrHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
     }
 
     // Message.
@@ -75,19 +74,19 @@ public class MinimalKSnack {
         // Check style
         switch (style){
             case MinimalKSnackStyle.STYLE_DEFAULT:
-                rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_default));
+                lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_default));
                 break;
             case MinimalKSnackStyle.STYLE_INFO:
-                rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_info));
+                lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_info));
                 break;
             case MinimalKSnackStyle.STYLE_SUCCESS:
-                rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_success));
+                lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_success));
                 break;
             case MinimalKSnackStyle.STYLE_ERROR:
-                rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_error));
+                lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_error));
                 break;
             case MinimalKSnackStyle.STYLE_WARNING:
-                rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_warning));
+                lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(R.color.ksnack_warning));
 
                 break;
         }
@@ -99,7 +98,7 @@ public class MinimalKSnack {
     public MinimalKSnack setBackgroundColor(@NonNull @ColorRes int colorInt){
 
         // Set color.
-        rlvHost.setBackgroundColor(snackView.getContext().getResources().getColor(colorInt));
+        lnrHost.setBackgroundColor(snackView.getContext().getResources().getColor(colorInt));
 
         return this;
     }
@@ -108,7 +107,7 @@ public class MinimalKSnack {
     public MinimalKSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt){
 
         // Set drawable to view.
-        rlvHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
+        lnrHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
 
         return this;
     }
