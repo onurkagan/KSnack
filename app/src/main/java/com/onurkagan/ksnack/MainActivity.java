@@ -3,8 +3,6 @@ package com.onurkagan.ksnack;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.onurkagan.ksnack_lib.KSnack.KSnack;
 import com.onurkagan.ksnack_lib.KSnack.KSnackBarEventListener;
@@ -62,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.activity_main_btn_dissmis).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Button) findViewById(R.id.activity_main_btn_dissmis)).setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                Toast.makeText(MainActivity.this, "Naber lan", Toast.LENGTH_LONG).show();
                 minimalKSnack.dismiss();
                 kSnack.dismiss();
             }

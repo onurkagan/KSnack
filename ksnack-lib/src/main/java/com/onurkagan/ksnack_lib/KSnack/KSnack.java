@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.onurkagan.ksnack_lib.R;
 
-public class KSnack extends View {
+public class KSnack {
 
     public  View                    snackView;
     private LayoutInflater          linf;
@@ -26,13 +26,12 @@ public class KSnack extends View {
     private Button                  btnAction;
     private TextView                txtMessage;
     private KSnackBarEventListener  kSnackBarEventListener;
-    private int                     snackViewWidth = 0,
-                                    snackViewHeight = 0;
 
     public KSnack(Activity activity) {
-        super(activity);
         this.initializeKSnackBar(activity);
     }
+
+
 
     private void initializeKSnackBar(Activity activity){
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,7 +40,7 @@ public class KSnack extends View {
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_normal, null);
 
-        System.out.println("Oldu...");
+        snackView.setAlpha(0);
         snackView.setZ(999);
         insertPoint.addView(snackView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -53,10 +52,6 @@ public class KSnack extends View {
 
         // Action button.
         btnAction = snackView.findViewById(R.id.snack_bar_btn_action);
-
-        // Get width and height.
-        snackViewWidth  = snackView.getWidth();
-        snackViewHeight = snackView.getHeight();
 
     }
 
