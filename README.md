@@ -29,7 +29,7 @@ minimalKSnack
 minimalKSnack.dismiss();
 ```
 
-### Minimal KSnack
+### KSnack
 
 ![](https://raw.githubusercontent.com/onurkagan/KSnack/master/app/src/main/res/drawable/ksnack.png)
 
