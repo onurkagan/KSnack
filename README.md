@@ -82,6 +82,6 @@ allprojects {
 Step 2. Add the dependency.
 ```gradle
 dependencies {
-  compile 'com.github.onurkagan:ksnack:1.0.0'
+  implementation 'com.github.onurkagan:KSnack:1.0.0'
 }
 ```
