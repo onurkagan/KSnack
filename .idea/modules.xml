@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KSnack.iml" filepath="$PROJECT_DIR$/KSnack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KSnack.iml" filepath="$PROJECT_DIR$/KSnack.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksnack-lib/ksnack-lib.iml" filepath="$PROJECT_DIR$/ksnack-lib/ksnack-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/ksnack-lib/ksnack-lib.iml" filepath="$PROJECT_DIR$/ksnack-lib/ksnack-lib.iml" />
     </modules>
   </component>
