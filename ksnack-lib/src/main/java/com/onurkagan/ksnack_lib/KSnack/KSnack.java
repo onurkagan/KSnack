@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -137,8 +138,7 @@ public class KSnack {
         snackView
                 .animate()
                 .alpha(1)
-                .setDuration(300);
-
+                .setInterpolator(new AccelerateInterpolator());
 
         if (kSnackBarEventListener != null){
             kSnackBarEventListener.showedSnackBar();
@@ -149,8 +149,7 @@ public class KSnack {
         snackView
                 .animate()
                 .alpha(0)
-                .setDuration(300);
-
+                .setInterpolator(new AccelerateInterpolator());
 
         if (kSnackBarEventListener != null){
             kSnackBarEventListener.stoppedSnackBar();
