@@ -4,7 +4,7 @@ You can create customized Snackbar with KSnack. KSnack has 2 view type; KSnack a
 
 ### Minimal KSnack
 
-![](https://raw.githubusercontent.com/onurkagan/KSnack/master/app/src/main/res/drawable/minimal-ksnack.png)
+![](https://raw.githubusercontent.com/onurkagan/KSnack/master/app/src/main/res/drawable/minimal_ksnack.png)
 
 1. Initialize Minimal KSnack.
 ```java
