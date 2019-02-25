@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +45,8 @@ public class KSnack {
         snackView = linf.inflate(R.layout.layout_snack_normal, null);
 
         snackView.setAlpha(0);
-        snackView.setZ(999);
-        insertPoint.addView(snackView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewCompat.setTranslationZ(snackView, 999);
+        insertPoint.addView(snackView, 1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         // Initialize component view.
         rlvHost = snackView.findViewById(R.id.normal_snack_bar_rlv);
@@ -111,10 +114,7 @@ public class KSnack {
     public KSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt){
 
         // Set drawable to view.
-        rlvHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
-
-        // Set elevation.
-        rlvHost.setElevation(3f);
+        ViewCompat.setBackground(rlvHost, ContextCompat.getDrawable(rlvHost.getContext(), drawableInt));
 
         return this;
     }

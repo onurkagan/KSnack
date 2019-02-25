@@ -2,10 +2,14 @@ package com.onurkagan.ksnack_lib.MinimalKSnack;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +40,8 @@ public class MinimalKSnack {
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_small, null);
         snackView.setVisibility(View.GONE);
-        snackView.setZ(999);
-        insertPoint.addView(snackView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewCompat.setTranslationZ(snackView, 999);
+        insertPoint.addView(snackView, 1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         // Initialize component view.
         lnrHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
@@ -107,7 +111,8 @@ public class MinimalKSnack {
     public MinimalKSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt){
 
         // Set drawable to view.
-        lnrHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
+        ViewCompat.setBackground(lnrHost, ContextCompat.getDrawable(lnrHost.getContext(), drawableInt));
+        //lnrHost.setBackground(snackView.getContext().getResources().getDrawable(drawableInt));
 
         return this;
     }

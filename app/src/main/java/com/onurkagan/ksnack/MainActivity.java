@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage("This is minimal KSnack !")
                         .setStyle(MinimalKSnackStyle.STYLE_SUCCESS)
                         .setBackgroundColor(R.color.colorGray)
-                        .setBackgrounDrawable(R.drawable.background_ex_one)
+                        .setBackgrounDrawable(R.drawable.background_minimal_snack)
                         .show();
 
                 // KSnack

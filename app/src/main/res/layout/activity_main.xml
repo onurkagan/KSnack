@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:gravity="center"
-    android:padding="24dp"
+    android:orientation="vertical"
     tools:context="com.onurkagan.ksnack.MainActivity">
 
-
-    <Button
-        android:id="@+id/activity_main_btn_show"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show"
-        android:layout_marginRight="24dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/ksnack_success"
-        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
+        android:layout_centerInParent="true"
+        android:layout_margin="24dp"
+        android:background="@drawable/background_host"
+        android:gravity="center"
+        android:padding="24dp"
+        android:elevation="12dp">
 
-    <Button
-        android:id="@+id/activity_main_btn_dissmis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dismiss"
-        android:layout_weight="1"
-        android:backgroundTint="@color/ksnack_error"
-        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
+        <Button
+            android:id="@+id/activity_main_btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/ksnack_success"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/activity_main_btn_dissmis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dismiss"
+            android:layout_weight="1"
+            android:backgroundTint="@color/ksnack_error"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
