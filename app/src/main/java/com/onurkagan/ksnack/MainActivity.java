@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.onurkagan.ksnack_lib.KSnack.Animations.Fade;
+import com.onurkagan.ksnack_lib.Animations.Fade;
 import com.onurkagan.ksnack_lib.KSnack.KSnack;
 import com.onurkagan.ksnack_lib.KSnack.KSnackBarEventListener;
 import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnack;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         .setStyle(MinimalKSnackStyle.STYLE_SUCCESS)
                         .setBackgroundColor(R.color.colorGray)
                         .setBackgrounDrawable(R.drawable.background_minimal_snack)
+                        .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation())
                         .show();
 
                 // KSnack

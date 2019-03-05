@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.onurkagan.ksnack_lib.KSnack.Animations.Fade;
+import com.onurkagan.ksnack_lib.Animations.Fade;
 import com.onurkagan.ksnack_lib.R;
 
 public class KSnack {

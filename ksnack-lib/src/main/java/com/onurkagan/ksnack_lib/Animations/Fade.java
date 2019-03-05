@@ -1,4 +1,4 @@
-package com.onurkagan.ksnack_lib.KSnack.Animations;
+package com.onurkagan.ksnack_lib.Animations;
 
 
 import android.view.animation.AccelerateInterpolator;
