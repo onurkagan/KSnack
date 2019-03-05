@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -14,11 +13,12 @@ import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.onurkagan.ksnack_lib.KSnack.Animations.Fade;
 import com.onurkagan.ksnack_lib.R;
 
 public class KSnack {
@@ -30,6 +30,7 @@ public class KSnack {
     private Button                  btnAction;
     private TextView                txtMessage;
     private KSnackBarEventListener  kSnackBarEventListener;
+    private Animation               inAnim, outAnim;
 
     public KSnack(Activity activity) {
         this.initializeKSnackBar(activity);
@@ -44,7 +45,8 @@ public class KSnack {
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_normal, null);
 
-        snackView.setAlpha(0);
+        snackView.setVisibility(View.GONE);
+
         ViewCompat.setTranslationZ(snackView, 999);
         insertPoint.addView(snackView, 1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -57,6 +59,11 @@ public class KSnack {
         // Action button.
         btnAction = snackView.findViewById(R.id.snack_bar_btn_action);
 
+        // Set default in anim.
+        inAnim = Fade.In.getAnimation();
+
+        // Set default out anim.
+        outAnim = Fade.Out.getAnimation();
     }
 
     // Message.
@@ -134,23 +141,66 @@ public class KSnack {
         return this;
     }
 
-    public void show(){
-        snackView
-                .animate()
-                .alpha(1)
-                .setInterpolator(new AccelerateInterpolator());
+    // Set animation.
+    public KSnack setAnimation(Animation inAnim, Animation outAnim){
+        this.inAnim = inAnim;
+        this.outAnim = outAnim;;
+        return this;
+    }
 
+    public void show(){
+
+        // Animation listener.
+        inAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        // Set animation to view.
+        snackView.startAnimation(inAnim);
+
+        // Start callback.
         if (kSnackBarEventListener != null){
             kSnackBarEventListener.showedSnackBar();
         }
     }
 
     public void dismiss(){
-        snackView
-                .animate()
-                .alpha(0)
-                .setInterpolator(new AccelerateInterpolator());
 
+        // Animation listener.
+        outAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                snackView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        // Set animation to view.
+        snackView.startAnimation(outAnim);
+
+        // Stop callback.
         if (kSnackBarEventListener != null){
             kSnackBarEventListener.stoppedSnackBar();
         }
