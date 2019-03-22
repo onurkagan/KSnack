@@ -135,6 +135,15 @@ public class KSnack {
         return this;
     }
 
+    // Change button text color.
+    public KSnack setButtonTextColor(@NonNull @ColorRes int colorInt){
+
+        // Change button text color.
+        btnAction.setTextColor(btnAction.getContext().getResources().getColor(colorInt));
+
+        return this;
+    }
+
     // Set Listener.
     public KSnack setListener(KSnackBarEventListener listener){
         this.kSnackBarEventListener = listener;
