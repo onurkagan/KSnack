@@ -26,6 +26,7 @@ minimalKSnack
     .setStyle(MinimalKSnackStyle.STYLE_SUCCESS) // style
     .setBackgroundColor(R.color.colorGray) // background color
     .setBackgrounDrawable(R.drawable.background_ex_one) // background drawable
+    .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation()) // show and hide animations
     .setDuration(4000) // you can use for auto close.
     .show(); 
 ```
