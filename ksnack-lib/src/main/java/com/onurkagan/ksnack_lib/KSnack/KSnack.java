@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.onurkagan.ksnack_lib.KSnack.Animations.Fade;
+import com.onurkagan.ksnack_lib.Animations.Fade;
 import com.onurkagan.ksnack_lib.R;
 
 public class KSnack {
@@ -131,6 +131,15 @@ public class KSnack {
 
         // Change text color.
         txtMessage.setTextColor(txtMessage.getContext().getResources().getColor(colorInt));
+
+        return this;
+    }
+
+    // Change button text color.
+    public KSnack setButtonTextColor(@NonNull @ColorRes int colorInt){
+
+        // Change button text color.
+        btnAction.setTextColor(btnAction.getContext().getResources().getColor(colorInt));
 
         return this;
     }

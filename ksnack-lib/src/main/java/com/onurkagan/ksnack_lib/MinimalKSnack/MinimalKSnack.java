@@ -8,14 +8,15 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.onurkagan.ksnack_lib.Animations.Fade;
 import com.onurkagan.ksnack_lib.R;
 
 
@@ -29,6 +30,7 @@ public class MinimalKSnack {
     private ViewGroup                       insertPoint;
     private LinearLayout                    lnrHost;
     private MinimalKSnackBarEventListener   minimalKSnackBarEventListener;
+    private Animation                       inAnim, outAnim;
 
     public MinimalKSnack(Activity activity) {
         this.initializeMinimalBar(activity);
@@ -37,6 +39,7 @@ public class MinimalKSnack {
     private void initializeMinimalBar(Activity activity){
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         insertPoint = activity.findViewById(android.R.id.content);
+
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_small, null);
         snackView.setVisibility(View.GONE);
@@ -45,6 +48,12 @@ public class MinimalKSnack {
 
         // Initialize component view.
         lnrHost = snackView.findViewById(R.id.minimal_snack_bar_rlv);
+
+        // Set default in anim.
+        inAnim = Fade.In.getAnimation();
+
+        // Set default out anim.
+        outAnim = Fade.Out.getAnimation();
     }
 
     // Message.
@@ -123,16 +132,67 @@ public class MinimalKSnack {
         return this;
     }
 
-    public void show(){
-        snackView.setVisibility(View.VISIBLE);
+    // Set animation.
+    public  MinimalKSnack setAnimation(Animation inAnim, Animation outAnim){
+        this.inAnim = inAnim;
+        this.outAnim = outAnim;
 
+        return this;
+    }
+
+    public void show(){
+
+        // Animation listener.
+        inAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        // Set animation to view.
+        snackView.startAnimation(inAnim);
+
+        // Start callback.
         if (minimalKSnackBarEventListener != null){
             minimalKSnackBarEventListener.showedMinimalSnackBar();
         }
     }
 
     public void dismiss(){
-        snackView.setVisibility(View.GONE);
+
+        // Animation listener.
+        outAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                snackView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        // Set animation to view.
+        snackView.startAnimation(outAnim);
+
+        // Stop callback.
         if (minimalKSnackBarEventListener != null){
             minimalKSnackBarEventListener.stoppedMinimalSnackBar();
         }

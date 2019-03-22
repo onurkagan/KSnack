@@ -3,5 +3,7 @@
     <gradient/>
     <solid
         android:color="@color/ksnack_dark" />
-    <corners android:radius="4dp" />
+    <corners
+        android:topLeftRadius="4dp"
+        android:topRightRadius="4dp"/>
 </shape>
