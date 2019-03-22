@@ -65,7 +65,9 @@ kSnack
   .setMessage("Your message.") // message
   .setTextColor(R.color.white) // message text color
   .setBackColor(R.color.colorGray) // background color
+  .setButtonTextColor(R.color.white) // action button text color
   .setBackgrounDrawable(R.drawable.background_ex_one) // background drawable
+  .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation()) // show and hide animations
   .setDuration(4000) // you can use for auto close.
   .show(); 
 ```
@@ -87,6 +89,6 @@ allprojects {
 Step 2. Add the dependency.
 ```gradle
 dependencies {
-  implementation 'com.github.onurkagan:KSnack:1.0.1'
+  implementation 'com.github.onurkagan:KSnack:1.0.2'
 }
 ```
