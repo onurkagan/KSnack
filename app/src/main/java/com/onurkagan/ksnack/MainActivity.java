@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.onurkagan.ksnack_lib.Animations.Fade;
+import com.onurkagan.ksnack_lib.Animations.Slide;
 import com.onurkagan.ksnack_lib.KSnack.KSnack;
 import com.onurkagan.ksnack_lib.KSnack.KSnackBarEventListener;
 import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnack;
@@ -49,17 +50,18 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void stoppedSnackBar() {
-                                System.out.println("Ctopped");
+                                System.out.println("Stopped");
                             }
                         })
-                        .setAction("Text", new View.OnClickListener() {
+                        .setAction("Click", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 System.out.println("Your action !");
                             }
                         })
-                        .setMessage("Your message.")
-                        .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation())
+                        .setButtonTextColor(R.color.colorAccent)
+                        .setMessage("This is KSnack !")
+                        .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
                         .show();
             }
         });

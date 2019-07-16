@@ -36,8 +36,6 @@ public class KSnack {
         this.initializeKSnackBar(activity);
     }
 
-
-
     private void initializeKSnackBar(Activity activity){
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         insertPoint = activity.findViewById(android.R.id.content);
@@ -64,6 +62,11 @@ public class KSnack {
 
         // Set default out anim.
         outAnim = Fade.Out.getAnimation();
+    }
+
+    // Get view.
+    public View getSnackView(){
+        return rlvHost;
     }
 
     // Message.
@@ -153,7 +156,7 @@ public class KSnack {
     // Set animation.
     public KSnack setAnimation(Animation inAnim, Animation outAnim){
         this.inAnim = inAnim;
-        this.outAnim = outAnim;;
+        this.outAnim = outAnim;
         return this;
     }
 
