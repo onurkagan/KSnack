@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                         .setStyle(MinimalKSnackStyle.STYLE_SUCCESS)
                         .setBackgroundColor(R.color.colorGray)
                         .setBackgrounDrawable(R.drawable.background_minimal_snack)
-                        .setAnimation(Slide.Down.getAnimation(minimalKSnack.getMinimalSnackView()), Slide.Up.getAnimation(minimalKSnack.getMinimalSnackView()))
+                        .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation())
                         .show();
 
                 // KSnack
@@ -50,16 +50,17 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void stoppedSnackBar() {
-                                System.out.println("Ctopped");
+                                System.out.println("Stopped");
                             }
                         })
-                        .setAction("Text", new View.OnClickListener() {
+                        .setAction("Click", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 System.out.println("Your action !");
                             }
                         })
-                        .setMessage("Your message.")
+                        .setButtonTextColor(R.color.colorAccent)
+                        .setMessage("This is KSnack !")
                         .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
                         .show();
             }

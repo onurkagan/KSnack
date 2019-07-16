@@ -36,8 +36,6 @@ public class KSnack {
         this.initializeKSnackBar(activity);
     }
 
-
-
     private void initializeKSnackBar(Activity activity){
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         insertPoint = activity.findViewById(android.R.id.content);

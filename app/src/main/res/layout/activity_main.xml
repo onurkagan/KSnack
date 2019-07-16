@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context="com.onurkagan.ksnack.MainActivity">
 
     <LinearLayout
@@ -12,24 +13,22 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="24dp"
-        android:background="@drawable/background_host"
+        android:orientation="vertical"
         android:gravity="center"
-        android:padding="24dp"
-        android:elevation="12dp">
+        android:padding="24dp">
 
         <Button
             android:id="@+id/activity_main_btn_show"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Show"
-            android:layout_marginRight="24dp"
             android:layout_weight="1"
             android:backgroundTint="@color/ksnack_success"
             style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"/>
 
         <Button
             android:id="@+id/activity_main_btn_dissmis"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dismiss"
             android:layout_weight="1"
