@@ -68,7 +68,7 @@ kSnack
   .setBackColor(R.color.colorGray) // background color
   .setButtonTextColor(R.color.white) // action button text color
   .setBackgrounDrawable(R.drawable.background_ex_one) // background drawable
-  .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation()) // show and hide animations
+  .setAnimation(Slide.Up.getAnimation(kSnack.getSnackView()), Slide.Down.getAnimation(kSnack.getSnackView()))
   .setDuration(4000) // you can use for auto close.
   .show(); 
 ```
@@ -76,6 +76,19 @@ kSnack
 ```java
 kSnack.dismiss();
 ```
+
+### Animations
+
+  #### 1. Fade
+  ```java
+ kSnack.setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation()) // show and hide animations
+  ```
+  
+  #### 2. Slide
+  ```java
+ minimalKSnack.setAnimation(Slide.Up.getAnimation(minimalKSnack.getSnackView()), Slide.Down.getAnimation(minimalKSnack.getSnackView()))   
+  ```
+  Slide animations need KSnack or MinimalKSnack view. You should use ```getSnackView()``` or ```getMinimalSnackView()``` functions for correct view object.
 
 ### Installation
 Step 1. Add the JitPack repository to your build file. 
