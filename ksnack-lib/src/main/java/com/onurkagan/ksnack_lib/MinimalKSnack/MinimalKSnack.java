@@ -56,6 +56,11 @@ public class MinimalKSnack {
         outAnim = Fade.Out.getAnimation();
     }
 
+    // Get view.
+    public View getMinimalSnackView(){
+        return lnrHost;
+    }
+
     // Message.
     public MinimalKSnack setMessage(@NonNull String message){
         // Check null message.

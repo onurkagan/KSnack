@@ -66,6 +66,11 @@ public class KSnack {
         outAnim = Fade.Out.getAnimation();
     }
 
+    // Get view.
+    public View getSnackView(){
+        return rlvHost;
+    }
+
     // Message.
     public KSnack setMessage(@NonNull String message){
         // Check null message.
@@ -153,7 +158,7 @@ public class KSnack {
     // Set animation.
     public KSnack setAnimation(Animation inAnim, Animation outAnim){
         this.inAnim = inAnim;
-        this.outAnim = outAnim;;
+        this.outAnim = outAnim;
         return this;
     }
 
