@@ -86,7 +86,7 @@ kSnack.dismiss();
   
   #### 2. Slide
   ```java
- minimalKSnack.setAnimation(Slide.Up.getAnimation(minimalKSnack.getSnackView()), Slide.Down.getAnimation(minimalKSnack.getSnackView()))   
+ minimalKSnack.setAnimation(Slide.Down.getAnimation(minimalKSnack.getSnackView()), Slide.Up.getAnimation(minimalKSnack.getSnackView()))   
   ```
   Slide animations need KSnack or MinimalKSnack view. You should use ```getSnackView()``` or ```getMinimalSnackView()``` functions for correct view object.
 
