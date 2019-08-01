@@ -3,6 +3,7 @@ package com.onurkagan.ksnack_lib.KSnack;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.annotation.ColorRes;
@@ -23,20 +24,20 @@ import com.onurkagan.ksnack_lib.R;
 
 public class KSnack {
 
-    public  View                    snackView;
-    private LayoutInflater          linf;
-    private ViewGroup               insertPoint;
-    private RelativeLayout          rlvHost;
-    private Button                  btnAction;
-    private TextView                txtMessage;
-    private KSnackBarEventListener  kSnackBarEventListener;
-    private Animation               inAnim, outAnim;
+    public View snackView;
+    private LayoutInflater linf;
+    private ViewGroup insertPoint;
+    private RelativeLayout rlvHost;
+    private Button btnAction;
+    private TextView txtMessage;
+    private KSnackBarEventListener kSnackBarEventListener;
+    private Animation inAnim, outAnim;
 
     public KSnack(Activity activity) {
         this.initializeKSnackBar(activity);
     }
 
-    private void initializeKSnackBar(Activity activity){
+    private void initializeKSnackBar(Activity activity) {
         linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         insertPoint = activity.findViewById(android.R.id.content);
 
@@ -65,12 +66,12 @@ public class KSnack {
     }
 
     // Get view.
-    public View getSnackView(){
+    public View getSnackView() {
         return rlvHost;
     }
 
     // Message.
-    public KSnack setMessage(@NonNull String message){
+    public KSnack setMessage(@NonNull String message) {
         // Check null message.
         if (message == null) message = "n/a";
 
@@ -80,7 +81,7 @@ public class KSnack {
     }
 
     // Duration
-    public KSnack setDuration(@NonNull int millisecond){
+    public KSnack setDuration(@NonNull int millisecond) {
 
         // Set duration.
         new Handler().postDelayed(new Runnable() {
@@ -94,7 +95,7 @@ public class KSnack {
     }
 
     // Set button action.
-    public KSnack setAction(@NonNull String buttonText, @NonNull final View.OnClickListener clickListener){
+    public KSnack setAction(@NonNull String buttonText, @NonNull final View.OnClickListener clickListener) {
 
         // Change button visibility.
         btnAction.setVisibility(View.VISIBLE);
@@ -109,7 +110,7 @@ public class KSnack {
     }
 
     // Background color (Color res).
-    public KSnack setBackColor(@NonNull @ColorRes int colorInt){
+    public KSnack setBackColor(@NonNull @ColorRes int colorInt) {
 
         // Get current background drawable.
         Drawable drawable = rlvHost.getBackground();
@@ -121,7 +122,7 @@ public class KSnack {
     }
 
     // Background drawable (Drawable res).
-    public KSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt){
+    public KSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt) {
 
         // Set drawable to view.
         ViewCompat.setBackground(rlvHost, ContextCompat.getDrawable(rlvHost.getContext(), drawableInt));
@@ -130,7 +131,7 @@ public class KSnack {
     }
 
     // Change description text color.
-    public KSnack setTextColor(@NonNull @ColorRes int colorInt){
+    public KSnack setTextColor(@NonNull @ColorRes int colorInt) {
 
         // Change text color.
         txtMessage.setTextColor(txtMessage.getContext().getResources().getColor(colorInt));
@@ -139,7 +140,7 @@ public class KSnack {
     }
 
     // Change button text color.
-    public KSnack setButtonTextColor(@NonNull @ColorRes int colorInt){
+    public KSnack setButtonTextColor(@NonNull @ColorRes int colorInt) {
 
         // Change button text color.
         btnAction.setTextColor(btnAction.getContext().getResources().getColor(colorInt));
@@ -147,20 +148,35 @@ public class KSnack {
         return this;
     }
 
+
+    public KSnack setTextTypeFace(@NonNull Typeface typeFace) {
+        //Change text typeface.
+        txtMessage.setTypeface(typeFace);
+        return this;
+    }
+
+
+    public KSnack setButtonTypeFace(@NonNull Typeface typeFace) {
+        //Change text typeface.
+        btnAction.setTypeface(typeFace);
+        return this;
+    }
+
+
     // Set Listener.
-    public KSnack setListener(KSnackBarEventListener listener){
+    public KSnack setListener(KSnackBarEventListener listener) {
         this.kSnackBarEventListener = listener;
         return this;
     }
 
     // Set animation.
-    public KSnack setAnimation(Animation inAnim, Animation outAnim){
+    public KSnack setAnimation(Animation inAnim, Animation outAnim) {
         this.inAnim = inAnim;
         this.outAnim = outAnim;
         return this;
     }
 
-    public void show(){
+    public void show() {
 
         // Animation listener.
         inAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -184,12 +200,12 @@ public class KSnack {
         snackView.startAnimation(inAnim);
 
         // Start callback.
-        if (kSnackBarEventListener != null){
+        if (kSnackBarEventListener != null) {
             kSnackBarEventListener.showedSnackBar();
         }
     }
 
-    public void dismiss(){
+    public void dismiss() {
 
         // Animation listener.
         outAnim.setAnimationListener(new Animation.AnimationListener() {
@@ -213,7 +229,7 @@ public class KSnack {
         snackView.startAnimation(outAnim);
 
         // Stop callback.
-        if (kSnackBarEventListener != null){
+        if (kSnackBarEventListener != null) {
             kSnackBarEventListener.stoppedSnackBar();
         }
     }
