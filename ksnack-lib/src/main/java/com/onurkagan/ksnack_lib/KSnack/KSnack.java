@@ -233,4 +233,34 @@ public class KSnack {
             kSnackBarEventListener.stoppedSnackBar();
         }
     }
+
+
+    public void dismissNow() {
+        Animation animation = Fade.Out.getAnimation(200);
+        // Animation listener.
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                snackView.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                snackView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        // Set animation to view.
+        snackView.startAnimation(animation);
+
+        // Stop callback.
+        if (kSnackBarEventListener != null) {
+            kSnackBarEventListener.stoppedSnackBar();
+        }
+    }
 }
