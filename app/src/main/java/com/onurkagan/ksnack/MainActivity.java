@@ -2,7 +2,6 @@ package com.onurkagan.ksnack;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,19 +14,23 @@ import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnackStyle;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnShow, btnDismiss;
-    private MinimalKSnack minimalKSnack;
-    private KSnack kSnack;
+    private Button          btnShow, btnDismiss;
+    private MinimalKSnack   minimalKSnack;
+    private KSnack          kSnack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        minimalKSnack = new MinimalKSnack(MainActivity.this);
-        kSnack = new KSnack(MainActivity.this);
-        btnShow = findViewById(R.id.activity_main_btn_show);
-        btnDismiss = findViewById(R.id.activity_main_btn_dissmis);
+        // Initialize objects.
+        minimalKSnack   = new MinimalKSnack(MainActivity.this);
+        kSnack          = new KSnack(MainActivity.this);
+        btnShow         = findViewById(R.id.activity_main_btn_show);
+        btnDismiss      = findViewById(R.id.activity_main_btn_dissmis);
+
+        // Open fragment.
+        getSupportFragmentManager().beginTransaction().add(R.id.activity_main_lyt_holder, BlankFragment.newInstance()).commit();
 
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                         .setBackgroundColor(R.color.colorGray)
                         .setBackgrounDrawable(R.drawable.background_minimal_snack)
                         .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation())
-                        .alignBottom()
                         .show();
 
                 // KSnack

@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +37,11 @@ public class MinimalKSnack {
         this.initializeMinimalBar(activity.findViewById(android.R.id.content));
     }
 
+    /**
+     * You can add MinimalKSnack to fragment but root view of fragment should not be LinearLayout.
+     * @param fragment
+     */
+    @Deprecated
     public MinimalKSnack(Fragment fragment) {
         this.initializeMinimalBar(fragment.getView());
     }

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
@@ -34,12 +35,12 @@ public class KSnack {
     private Animation inAnim, outAnim;
 
     public KSnack(Activity activity) {
-        this.initializeKSnackBar(activity);
+        this.initializeKSnackBar(activity.findViewById(android.R.id.content));
     }
 
-    private void initializeKSnackBar(Activity activity) {
-        linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        insertPoint = activity.findViewById(android.R.id.content);
+    private void initializeKSnackBar(View parentView) {
+        linf = (LayoutInflater) parentView.getContext().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        insertPoint = (ViewGroup) parentView;
 
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_normal, null);
