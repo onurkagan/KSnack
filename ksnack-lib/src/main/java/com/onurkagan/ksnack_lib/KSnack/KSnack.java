@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
@@ -34,12 +35,12 @@ public class KSnack {
     private Animation inAnim, outAnim;
 
     public KSnack(Activity activity) {
-        this.initializeKSnackBar(activity);
+        this.initializeKSnackBar(activity.findViewById(android.R.id.content));
     }
 
-    private void initializeKSnackBar(Activity activity) {
-        linf = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        insertPoint = activity.findViewById(android.R.id.content);
+    private void initializeKSnackBar(View parentView) {
+        linf = (LayoutInflater) parentView.getContext().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        insertPoint = (ViewGroup) parentView;
 
         // Create view.
         snackView = linf.inflate(R.layout.layout_snack_normal, null);
@@ -82,7 +83,6 @@ public class KSnack {
 
     // Duration
     public KSnack setDuration(@NonNull int millisecond) {
-
         // Set duration.
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -96,7 +96,6 @@ public class KSnack {
 
     // Set button action.
     public KSnack setAction(@NonNull String buttonText, @NonNull final View.OnClickListener clickListener) {
-
         // Change button visibility.
         btnAction.setVisibility(View.VISIBLE);
 
@@ -111,7 +110,6 @@ public class KSnack {
 
     // Background color (Color res).
     public KSnack setBackColor(@NonNull @ColorRes int colorInt) {
-
         // Get current background drawable.
         Drawable drawable = rlvHost.getBackground();
 
@@ -123,7 +121,6 @@ public class KSnack {
 
     // Background drawable (Drawable res).
     public KSnack setBackgrounDrawable(@NonNull @DrawableRes int drawableInt) {
-
         // Set drawable to view.
         ViewCompat.setBackground(rlvHost, ContextCompat.getDrawable(rlvHost.getContext(), drawableInt));
 
@@ -132,7 +129,6 @@ public class KSnack {
 
     // Change description text color.
     public KSnack setTextColor(@NonNull @ColorRes int colorInt) {
-
         // Change text color.
         txtMessage.setTextColor(txtMessage.getContext().getResources().getColor(colorInt));
 
@@ -141,7 +137,6 @@ public class KSnack {
 
     // Change button text color.
     public KSnack setButtonTextColor(@NonNull @ColorRes int colorInt) {
-
         // Change button text color.
         btnAction.setTextColor(btnAction.getContext().getResources().getColor(colorInt));
 
@@ -177,7 +172,6 @@ public class KSnack {
     }
 
     public void show() {
-
         // Animation listener.
         inAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -206,7 +200,6 @@ public class KSnack {
     }
 
     public void dismiss() {
-
         // Animation listener.
         outAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override

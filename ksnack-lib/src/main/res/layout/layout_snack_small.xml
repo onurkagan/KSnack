@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/minimal_snack_bar_rlv_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/minimal_snack_bar_rlv"
+        android:id="@+id/minimal_snack_bar_lnr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="false">
         <TextView
             android:id="@+id/minimal_snack_bar_txt_message"
             android:layout_width="match_parent"
@@ -15,4 +17,4 @@
             android:textColor="#fff"
             android:gravity="center"/>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
