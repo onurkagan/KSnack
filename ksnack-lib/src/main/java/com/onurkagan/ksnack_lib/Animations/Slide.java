@@ -14,7 +14,6 @@ public class Slide {
     private static Animation animation;
 
     public static  class Up {
-
         // Slide up anim without optional anim time and interpolator.
         public static Animation getAnimation(View view){
             view.measure(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -57,7 +56,6 @@ public class Slide {
     }
 
     public static  class Down {
-
         // Slide down anim without optional anim time and interpolator.
         public static Animation getAnimation(View view){
             view.measure(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

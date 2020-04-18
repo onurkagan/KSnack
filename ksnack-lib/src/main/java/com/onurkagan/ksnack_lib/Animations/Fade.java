@@ -1,6 +1,5 @@
 package com.onurkagan.ksnack_lib.Animations;
 
-
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -12,7 +11,6 @@ public class Fade {
     private static Animation animation;
 
     public static class In {
-
         // Fade out anim without optional anim time and interpolator.
         public static Animation getAnimation(){
             animation = new AlphaAnimation(0, 1);
@@ -39,7 +37,6 @@ public class Fade {
     }
 
     public static class Out {
-
         // Fade out anim without optional anim time and interpolator.
         public static Animation getAnimation(){
             animation = new AlphaAnimation(1, 0);
