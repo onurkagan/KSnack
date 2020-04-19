@@ -28,6 +28,7 @@ minimalKSnack
     .setBackgrounDrawable(R.drawable.background_ex_one) // background drawable
     .setAnimation(Fade.In.getAnimation(), Fade.Out.getAnimation()) // show and hide animations
     .setDuration(4000) // you can use for auto close.
+    .alignBottom() // bottom align option.
     .show(); 
 ```
 3. Close Minimal KSnack.
@@ -103,6 +104,6 @@ allprojects {
 Step 2. Add the dependency.
 ```gradle
 dependencies {
-  implementation 'com.github.onurkagan:KSnack:1.1.1'
+  implementation 'com.github.onurkagan:KSnack:1.1.2'
 }
 ```
