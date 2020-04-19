@@ -3,6 +3,7 @@
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![](https://jitpack.io/v/onurkagan/ksnack.svg)](https://jitpack.io/#onurkagan/ksnack)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-KSnack-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7533)
+![Downloads](https://jitpack.io/v/onurkagan/ksnack/month.svg)
 
 
 You can create customized Snackbar with KSnack. KSnack has 2 view type; KSnack and Minimal KSnack.
