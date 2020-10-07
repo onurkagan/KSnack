@@ -1,25 +1,25 @@
-package com.onurkagan.ksnack;
+package com.onurkagan.ksnack;    // Package Name
 
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;     // Importing Android Dependencies
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.onurkagan.ksnack_lib.Animations.Fade;
+import com.onurkagan.ksnack_lib.Animations.Fade;     // Importing Dependencies
 import com.onurkagan.ksnack_lib.Animations.Slide;
 import com.onurkagan.ksnack_lib.KSnack.KSnack;
 import com.onurkagan.ksnack_lib.KSnack.KSnackBarEventListener;
 import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnack;
 import com.onurkagan.ksnack_lib.MinimalKSnack.MinimalKSnackStyle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {    // Main Class
 
     private Button          btnShow, btnDismiss;
     private MinimalKSnack   minimalKSnack;
     private KSnack          kSnack;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {     // overriding onCreate Function to change functionality
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {                               // Overriding methods to display things
                 // Minimal KSnack
                 minimalKSnack
                         .setMessage("This is minimal KSnack !")
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnDismiss.setOnClickListener(new View.OnClickListener() {
+        btnDismiss.setOnClickListener(new View.OnClickListener() {      //  Button Activity Listener
             @Override
             public void onClick(View v) {
                 minimalKSnack.dismiss();
